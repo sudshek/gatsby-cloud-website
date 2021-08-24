@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://wp-stage.ludosupreme.com/gatsby-poc/public/",
     title: "ludo-supreme-gatsby",
   },
+  pathPrefix:"https://wp-stage.ludosupreme.com/gatsby-poc/public/",
   plugins: [
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
