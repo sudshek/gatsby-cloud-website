@@ -160,8 +160,8 @@ const IndexPage = ({data}) => {
   // console.log(data, "INDEXXX")
  return <Router>
    <Home path="/" data = {data}/>
-      <Contact  path="/contact-us" />
-      <About path="/about-us" />
+      <Contact  path="/contact" />
+      <About path="/about" />
       <Route path="/faq" component = {()=>{
         window.location.href = "https://www.ludosupreme.com/responsible-gaming.html"; 
         return null;
