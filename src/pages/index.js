@@ -7,7 +7,7 @@ import About from './about'
 import { StaticImage } from "gatsby-plugin-image"
 import { graphql } from 'gatsby'
 import { Router, Route } from '@reach/router';
-import "./Heavy-styles.css"
+import "./heavy-styles.css"
 // styles
 const pageStyles = {
   color: "#232129",
