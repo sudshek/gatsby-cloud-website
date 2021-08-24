@@ -9,7 +9,6 @@ import { graphql } from 'gatsby'
 import { Router, Route } from '@reach/router';
 import Extra from './extra-header'
 import ExtraComponent from "./extra-comp"
-import "./heavy-styles.css"
 // styles
 const pageStyles = {
   color: "#232129",

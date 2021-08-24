@@ -4,12 +4,6 @@ import {getExampleImageData} from '../utils/imageUtils'
 class Slider extends React.Component {
     constructor(props) {
         super(props)
-        
-        // const imageList = []
-        // this.props.slider.forEach(element => {
-        //     const image = getImage(element)
-        //     imageList.push(image)
-        // });
         this.state = {
             images: this.props.slider,
             currentIndex: 0,
@@ -22,7 +16,13 @@ class Slider extends React.Component {
     goToPrevSlide = () => {
         console.log("hetr")
         if (this.state.currentIndex === 0)
+        {
+            this.setState({
+                currentIndex: this.state.images.length - 1,
+            })
             return;
+        }
+            
 
         this.setState(prevState => ({
             currentIndex: prevState.currentIndex - 1,
@@ -63,25 +63,33 @@ class Slider extends React.Component {
         const imageData = getExampleImageData({ image, layout: "fixed", width: 400 })
         return (
             <div className="slider" style={{
-                position: 'relative',
                 width: '500px',
                 backgroundColor:'yellow',
                 margin: 'auto',
                 height: '500px',
                 overflow: 'hidden',
                 whiteSpace: 'nowrap',
-                flexDirection:'row'
             }}>
-                <div>
+                <div style={{
+                    flexDirection:'row',
+                    width:'100%',
+                    justifyContent:'space-between',
+                    marginTop:20,
+                    marginBottom:20,
+                    backgroundColor:'yellow',
+                    height:100
+                }}>
                 <LeftArrow
                     goToPrevSlide={this.goToPrevSlide}
                 />
                 <RightArrow
                     goToNextSlide={this.goToNextSlide}
                 />
+
                 </div>
         
                 {/* <StaticImage src={this.state.images[this.state.currentIndex]}  alt={"this.props.data.name"} /> */}
+
                 <GatsbyImage image={imageData} alt={"good image"} />
 
                 
@@ -91,36 +99,18 @@ class Slider extends React.Component {
 }
 
 
-// const Slide = ({ image }) => {
-//     const styles = {
-//         backgroundImage: `url(${image})`,
-//         backgroundSize: 'cover',
-//         backgroundRepeat: 'no-repeat',
-//         backgroundPosition: '50% 60%',
-//         display: 'inline-block',
-//         height: '100%',
-//         width: '80%',
-//         marginLeft:'10%'
-
-//     }
-//     return <div className="slide" style={styles}></div>
-// }
-
 
 const LeftArrow = (props) => {
     return (
-        <div className="backArrow arrow" onClick={props.goToPrevSlide} style={{
+        <div className="backArrow" onClick={props.goToPrevSlide} style={{
             height: 50,
             width: 50,
-            backgroundColor:'green',
-            zIndex:90,
-            display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: '#f9f9f9',
+            background: 'blue',
             borderRadius: '50%',
             cursor: 'pointer',
-            // position:'absolute'
+
             }}>
             <i className="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
         </div>
@@ -130,17 +120,18 @@ const LeftArrow = (props) => {
 
 const RightArrow = (props) => {
     return (
-        <div className="nextArrow arrow" onClick={props.goToNextSlide} style={{
+        <div className="nextArrow" onClick={props.goToNextSlide} style={{
             height: 50,
             width: 50,
-            display: 'flex',
-            alignItems: 'center',
+            backgroundColor:'green',
             justifyContent: 'center',
-            background: '#f9f9f9',
+            background: 'green',
             borderRadius: '50%',
             cursor: 'pointer',
+
+
         }}>
-            <i className="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+            <i className="fa fa-arrow-right fa-2x" aria-hidden="true" style={{width:'100%', height:'100%'}}></i>
         </div>
     );
 }
