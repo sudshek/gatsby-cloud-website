@@ -8,6 +8,8 @@ import { StaticImage } from "gatsby-plugin-image"
 import { graphql } from 'gatsby'
 import { Router, Route } from '@reach/router';
 import "./Heavy-styles.css"
+import Extra from './extra-header'
+import ExtraComponent from "./extra-comp"
 // styles
 const pageStyles = {
   color: "#232129",
@@ -151,9 +153,11 @@ const Home = (props) => {
         </a>
         <div class="desc">Add a description of the image here</div>
     </div>
+    <extra/>
     <Tiles gallery={gallery}/>
     <Slider slider={slider}/>
-
+    <Extra/>
+    <ExtraComponent/>
     </main>
   )
 }
